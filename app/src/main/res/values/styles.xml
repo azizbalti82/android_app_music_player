@@ -10,7 +10,7 @@
     </style>
 
     <style name="round_corners_art">
-        <item name="cornerSize">3%</item>
+        <item name="cornerSize">5dp</item>
     </style>
 
     <style name="circuler_art">

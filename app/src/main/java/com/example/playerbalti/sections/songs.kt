@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -54,13 +55,14 @@ class songs : Fragment() {
             val adapter = menu_sort_songs_adapter()
             adapter.show(requireFragmentManager(), adapter.tag)
         }
-
         b.refrech.setOnRefreshListener {
             //initialize ui
             sort()
             setSongs()
             b.refrech.isRefreshing = false
         }
+
+
 
         return b.root
     }
@@ -136,5 +138,41 @@ class songs : Fragment() {
         // Set up the Adapter
         var adapter = SongAdapter(data.songsList,childFragmentManager)
         recyclerView.adapter = adapter
+
+        // Add scroll listener
+        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            private var totalScrollDistance = 0 // Total scrolled distance in pixels
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                // Update the total scroll distance
+                totalScrollDistance += dy
+
+                // Check if threshold is reached
+                if (Math.abs(totalScrollDistance) >= 400) {
+                    if (dy > 0 && b.appBar.isVisible) {
+                        Log.d("RecyclerView", "Scrolled down by 100dp")
+                        // Scrolling down: hide container
+                        b.appBar.animate()
+                            .alpha(0f)
+                            .setDuration(100)
+                            .withEndAction { b.appBar.visibility = View.GONE }
+                            .start()
+                    } else if(dy <= 0 && !b.appBar.isVisible) {
+                        Log.d("RecyclerView", "Scrolled up by 100dp")
+                        // Scrolling up: show container
+                        b.appBar.visibility = View.VISIBLE
+                        b.appBar.animate()
+                            .alpha(1f)
+                            .setDuration(500)
+                            .start()
+                    }
+
+                    // Reset scroll distance after threshold is handled
+                    totalScrollDistance = 0
+                }
+            }
+        })
     }
 }
