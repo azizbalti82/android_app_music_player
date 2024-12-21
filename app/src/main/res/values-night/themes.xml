@@ -1,0 +1,21 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="mainTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:statusBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="buttonIconTint">@color/accent</item>
+        <item name="android:button">@color/accent</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="popupMenuBackground">@color/background2</item>
+    </style>
+
+    <style name="Theme.MyApplication" parent="mainTheme" />
+  <!-- Base application theme. -->
+    <style name="Base.mainTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+</resources>

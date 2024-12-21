@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="selectedButton">#55444444</color>
+
+    <color name="text">#ffffff</color>
+    <color name="text2">#cccccc</color>
+    <color name="text3">#bbbbbb</color>
+    <color name="text4">#aaaaaa</color>
+    <color name="text_red">#ff5555</color>
+
+   <!-- <color name="accent">#E25980FA</color>-->
+    <color name="accent">#E26FACED</color>
+    <color name="accent2">#996FACED</color>
+    <color name="accent3">#BECEFF</color>
+
+
+    <color name="background">#111111</color>
+    <color name="background1">#77202020</color>
+    <color name="background2">#333333</color>
+    <color name="background3">#555555</color>
+    <color name="backgroundSoft">#222222</color>
+
+    <color name="background_dark">#202020</color>
+    <color name="background_dark_shadow">#55333333</color>
+
+    <color name="bottom_sheet_bg">#292929</color>
+    <color name="bottom_sheet_bg_selected">#353535</color>
+</resources>

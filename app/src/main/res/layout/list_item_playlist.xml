@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- list_item_song.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="2dp"
+    android:clickable="true"
+    android:background="@drawable/item_selected"
+    android:id="@+id/container">
+
+    <ImageView
+        android:id="@+id/art"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/songs_art_background"
+        android:src="@drawable/playlist2"
+        android:scaleType="centerCrop"
+        app:tint="@color/background3"
+        android:layout_marginStart="12dp"
+        />
+<!--
+
+        -->
+
+
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textColor="@color/text"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="artist"
+            android:textSize="14sp"
+            android:textColor="@color/text3"
+            />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/option"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+
+        android:background="@drawable/buttons_effect"
+        android:src="@drawable/more"
+        app:tint="@color/text3"
+        android:padding="5dp"
+        />
+
+</LinearLayout>

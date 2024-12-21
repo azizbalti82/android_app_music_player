@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/appBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll"
+            android:background="@color/background"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                android:id="@+id/taskbar"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:paddingHorizontal="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:layout_gravity="center_vertical|start"
+                    android:id="@+id/cancel_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:textSize="19sp"
+                    android:background="@drawable/buttons_effect"
+                    android:src="@drawable/back"
+                    app:tint="@color/text" />
+
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    />
+                <ImageButton
+                    android:id="@+id/option"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/buttons_effect"
+                    android:src="@drawable/more"
+                    android:textSize="20sp"
+                    app:tint="@color/text" />
+            </LinearLayout>
+                <LinearLayout
+                android:id="@+id/albumInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskbar">
+
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:background="@drawable/artist_background"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/circuler_art"
+                    android:transitionName="artist"
+                    />
+            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/albumInfo">
+
+                    <TextView
+                        android:id="@+id/artistName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="artist name"
+                        android:textColor="@color/text"
+                        android:textAlignment="center"
+                        android:paddingTop="5dp"
+                        android:textSize="22sp"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/taskbar"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:paddingTop="3dp"
+                        android:text="1 Album . 1 Song"
+                        android:textColor="@color/text3"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/taskbar" />
+
+                </LinearLayout>
+                <LinearLayout
+                android:id="@+id/playContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <Button
+                    android:id="@+id/play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/buttons_triangle_shape1"
+                    android:backgroundTint="@color/accent"
+                    android:text="PLAY ALL"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@null"
+                    app:icon="@drawable/play"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/white" />
+
+                <Button
+                    android:id="@+id/shuffle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/buttons_triangle_shape2"
+                    android:text="SHUFFULE"
+                    android:textColor="@color/accent"
+
+                    app:backgroundTint="@null"
+                    app:icon="@drawable/shuffle"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/accent" />
+                </LinearLayout>
+
+                <!-- albums -->
+                <LinearLayout
+                android:id="@+id/recyclerViewLayoutAlbums"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:orientation="vertical"
+                    android:paddingBottom="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/playContainer">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Albums"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    android:padding="10dp"
+
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewArtistAlbums"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <!-- songs -->
+    <LinearLayout
+        android:id="@+id/recyclerViewLayoutSongs"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewLayoutAlbums"
+        tools:ignore="MissingConstraints">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Songs"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:layout_marginHorizontal="12dp"
+                />
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewArtistSongs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

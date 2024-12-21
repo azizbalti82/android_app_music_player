@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent"
+    tools:context=".otherActivities.playerActivity"
+    android:padding="10dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/cont1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageButton
+            android:id="@+id/cancel"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttons_effect"
+            android:src="@drawable/arrow"
+            app:tint="@color/text2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="1"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="playing from"
+            android:textSize="13sp"
+
+            android:ellipsize="end"
+            android:paddingBottom="3dp"
+            android:textColor="@color/text2"
+
+            />
+
+        <TextView
+            android:id="@+id/album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="album"
+            android:maxLines="1"
+            android:textSize="14sp"
+            android:ellipsize="end"
+            android:textColor="@color/text"
+            />
+
+
+    </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/option"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttons_effect"
+            android:src="@drawable/more"
+            app:tint="@color/text2" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/recyclerViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cont1"
+        tools:ignore="MissingConstraints">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewLayout"
+        tools:layout_editor_absoluteX="10dp">
+
+        <ImageButton
+            android:id="@+id/like"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttons_effect"
+            android:src="@drawable/heart"
+            app:tint="@color/text2" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="25dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp">
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingBottom="3dp"
+                android:maxLines="1"
+                android:text="title"
+                android:textColor="@color/text"
+                android:textSize="17sp"
+
+                />
+
+            <TextView
+                android:id="@+id/artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:text="artist"
+                android:maxLines="1"
+                android:textColor="@color/text2"
+                android:textSize="15sp" />
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/queue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttons_effect"
+            android:src="@drawable/queue"
+            app:tint="@color/text2" />
+
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="35dp"
+
+        android:progressTint="@color/accent"
+        android:thumbTint="@color/accent3"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/played_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:text="00:00"
+        android:textColor="@color/text2"
+        android:textSize="12sp"
+        android:paddingStart="20dp"
+        app:layout_constraintStart_toStartOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+
+    <TextView
+        android:id="@+id/duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:text="00:00"
+        android:textColor="@color/text2"
+        android:textSize="12sp"
+        android:paddingEnd="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/seekBar"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ImageButton
+            android:id="@+id/shuffle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttons_effect"
+            android:src="@drawable/shuffle"
+            app:tint="@color/text3" />
+
+        <ImageButton
+            android:id="@+id/previous"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttons_effect"
+            android:src="@drawable/previous"
+            app:tint="@color/text" />
+
+        <ImageButton
+            android:id="@+id/play"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttons_effect"
+            android:src="@drawable/play_circle"
+            app:tint="@color/text" />
+
+        <ImageButton
+            android:id="@+id/next"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttons_effect"
+            android:src="@drawable/next"
+            app:tint="@color/text" />
+
+        <ImageButton
+            android:id="@+id/replay"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/buttons_effect"
+            android:src="@drawable/repeat"
+            app:tint="@color/text" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

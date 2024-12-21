@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Your styles go here -->
+    <style name="NoUnderlineEditText" parent="">
+        <item name="boxBackgroundMode">none</item>
+    </style>
+
+    <style name="TabTextStyle" parent="TextAppearance.Design.Tab">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="round_corners_art">
+        <item name="cornerSize">3%</item>
+    </style>
+
+    <style name="circuler_art">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="Widget.MyApplication.AppWidget.Container" parent="android:Widget">
+        <item name="android:id">@android:id/background</item>
+        <item name="android:background">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Widget.MyApplication.AppWidget.InnerView" parent="android:Widget">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="MyTextInputLayout">
+        <item name="boxStrokeColor">@color/text</item>
+    </style>
+
+
+</resources>

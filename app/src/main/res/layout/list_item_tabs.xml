@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- list_item_song.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:paddingVertical="7dp"
+    android:paddingHorizontal="10dp"
+    android:clickable="true"
+    android:background="@color/bottom_sheet_bg"
+    android:foreground="@drawable/item_selected"
+    android:id="@+id/container">
+
+
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:checked="true"
+        />
+
+
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:textColor="@color/text"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/drag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/buttons_effect"
+        android:src="@drawable/drag"
+        app:tint="@color/text2"
+        android:padding="7dp"
+        />
+
+</LinearLayout>

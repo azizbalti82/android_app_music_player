@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".more.moreActivity">
+
+        <LinearLayout
+            android:id="@+id/taskbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal">
+            <ImageButton
+                android:layout_gravity="center_vertical"
+                android:id="@+id/cancel_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:textSize="19sp"
+                android:background="@drawable/buttons_effect"
+                android:src="@drawable/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/text" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="Details"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="played 0 times"
+                    android:textColor="@color/text2"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/container1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/taskbar"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/playlist"
+            android:padding="10dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Title"
+                android:textColor="@color/text2"
+                android:textSize="16sp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Artist"
+                android:textColor="@color/text2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/artist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:paddingBottom="5dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Genre"
+                android:textColor="@color/text2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/genre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:paddingBottom="5dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Year"
+                android:textColor="@color/text2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:paddingBottom="5dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Duration"
+                android:textColor="@color/text2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:paddingBottom="5dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/container2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/container1"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/playlist"
+            android:padding="10dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Album"
+                android:textColor="@color/text2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/album"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:paddingBottom="5dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Album artist"
+                android:textColor="@color/text2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/album_artist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:paddingBottom="5dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Track"
+                android:textColor="@color/text2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/track_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:paddingBottom="5dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Bitrates"
+                android:textColor="@color/text2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/bitrates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:paddingBottom="5dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/container3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/container2"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/playlist"
+            android:padding="10dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="Path"
+                android:textColor="@color/text2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/path"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingVertical="8dp"
+                android:paddingBottom="5dp"
+                android:text="-"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.core.widget.NestedScrollView>
