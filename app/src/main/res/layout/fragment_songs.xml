@@ -114,7 +114,7 @@
             android:layout_weight="1"
             android:scrollbars="vertical"
             android:fadeScrollbars="true"
-            android:scrollbarSize="5dp"
+            android:scrollbarSize="0dp"
             android:scrollbarThumbVertical="@color/accent"
             />
     </LinearLayout>

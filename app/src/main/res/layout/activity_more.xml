@@ -79,6 +79,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_height="wrap_content"
         android:background="@drawable/bottom_sheet_item_selected"
         android:paddingVertical="3dp"
+        android:layout_marginTop="15dp"
         android:paddingStart="10dp">
 
         <ImageButton
@@ -86,7 +87,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_height="25dp"
             android:layout_margin="10dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/settings"
+            android:src="@drawable/outline_settings"
             app:tint="@color/text3" />
 
         <TextView
@@ -100,32 +101,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:textSize="14sp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/containerEqualizer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bottom_sheet_item_selected"
-        android:paddingVertical="3dp"
-        android:paddingStart="10dp">
 
-        <ImageButton
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_margin="10dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/equalizer"
-            app:tint="@color/text3" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:ellipsize="end"
-            android:paddingStart="5dp"
-            android:text="Equalizer"
-            android:textColor="@color/text"
-            android:textSize="14sp" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/containerSleep"
@@ -153,7 +129,52 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:textColor="@color/text"
             android:textSize="14sp" />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/containerEqualizer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_sheet_item_selected"
+        android:paddingVertical="3dp"
+        android:paddingStart="10dp">
 
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/equalizer"
+            app:tint="@color/text3" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:paddingStart="5dp"
+            android:text="Equalizer"
+            android:textColor="@color/text"
+            android:textSize="14sp"
+            android:layout_weight="1"
+            />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="0dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/background_dark">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Available Soon"
+                android:textSize="11sp"
+                android:textColor="@color/text"
+                android:gravity="center" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
     <!-- line -->
     <View
         android:layout_width="match_parent"
@@ -167,6 +188,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         android:layout_height="wrap_content"
         android:background="@drawable/bottom_sheet_item_selected"
         android:paddingVertical="3dp"
+        android:layout_marginTop="15dp"
         android:paddingStart="10dp">
 
         <ImageButton
@@ -185,15 +207,14 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="359dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:ellipsize="end"
+                android:paddingStart="5dp"
                 android:text="Rate our app!"
                 android:textColor="@color/text"
-                android:textSize="14sp"
-                android:paddingStart="5dp"
-                />
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"

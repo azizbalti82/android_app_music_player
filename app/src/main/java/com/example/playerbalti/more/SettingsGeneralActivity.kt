@@ -27,7 +27,7 @@ class SettingsGeneralActivity : AppCompatActivity() {
 
 
         b.containerRescan.setOnClickListener {
-            data.getAllSongs(this)
+            data.getAllSongs(this,"Songs updated successfully","Error while updating songs")
         }
 
         b.containerManageTabs.setOnClickListener {
@@ -41,17 +41,9 @@ class SettingsGeneralActivity : AppCompatActivity() {
             shared.set(this,"settingsGeneral","rememberLastTab",isChecked)
         }
 
-        b.containerLastAdded.setOnClickListener {
-            Toast.makeText(this, "this feature is not ready yet...", Toast.LENGTH_SHORT).show()
-        }
-        b.containerLanguage.setOnClickListener {
-            Toast.makeText(this, "this feature is not ready yet...", Toast.LENGTH_SHORT).show()
-        }
-        b.containerHiddenSongs.setOnClickListener {
-            Toast.makeText(this, "this feature is not ready yet...", Toast.LENGTH_SHORT).show()
-        }
-        b.containerHiddenFolders.setOnClickListener {
-            Toast.makeText(this, "this feature is not ready yet...", Toast.LENGTH_SHORT).show()
-        }
+        data.disableContainer(this, b.containerLanguage,"English only available")
+        data.disableContainer(this, b.containerHiddenFolders)
+        data.disableContainer(this, b.containerHiddenSongs)
+        data.disableContainer(this, b.containerLastAdded)
     }
 }

@@ -3,6 +3,7 @@ package com.example.playerbalti.content
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,14 +21,31 @@ class playlistContent : AppCompatActivity() {
     lateinit var  b : ActivityPlaylistContentBinding
     var count = 0
     var name = ""
+    lateinit var type:String
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+
+        if(hasFocus && data.lastRenamedPlaylist.isNotEmpty()){
+            name = data.lastRenamedPlaylist
+            b.title.text = name
+            data.lastRenamedPlaylist = ""
+        }
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        data.lastRenamedPlaylist = ""
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivityPlaylistContentBinding.inflate(layoutInflater)
         setContentView(b.root)
 
-        val name = intent.getStringExtra("name")
-        val type = intent.getStringExtra("type") ?: "user"//"system" playlist or "user" playlist(by default: user)
+        name = intent.getStringExtra("name") ?: ""
+        type = intent.getStringExtra("type") ?: "user"//"system" playlist or "user" playlist(by default: user)
 
         //load songs -------------------------------------------------------------------------------
         var songs:MutableList<Song>
@@ -66,7 +84,7 @@ class playlistContent : AppCompatActivity() {
         }
 
         b.option.setOnClickListener{
-            val adapter = menu_playlist_adapter(b.title.text.toString(),type,count,songs)
+            val adapter = menu_playlist_adapter(name,type,count,songs,true)
             adapter.show(this.supportFragmentManager, adapter.tag)
         }
 

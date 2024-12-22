@@ -46,8 +46,8 @@ class settingsActivity : AppCompatActivity() {
             this.finish()
         }
 
-        //data.disableContainer(this, b.containerAudio)
-        //data.disableContainer(this, b.containerAppearance)
+        data.disableContainer(this, b.containerAudio)
+        data.disableContainer(this, b.containerAppearance)
         data.disableContainer(this, b.containerBackup)
         data.disableContainer(this, b.containerPlayback)
     }

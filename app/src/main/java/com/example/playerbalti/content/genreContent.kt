@@ -15,6 +15,7 @@ import com.example.playerbalti.menu.menu_sort_genres_adapter
 
 class genreContent : AppCompatActivity() {
     lateinit var  b : ActivityGenreContentBinding
+    lateinit var  name:String
     var count = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +23,37 @@ class genreContent : AppCompatActivity() {
         setContentView(b.root)
         //show the songs inside a genre//
         //get genre name from parent
-        var name = intent.getStringExtra("name")
+        name = intent.getStringExtra("name") ?: ""
+
+        if(name.isEmpty()){
+            finish()
+            return
+        }
 
         //load songs
+        loadSongs()
+
+        b.refrech.setOnRefreshListener {
+            loadSongs()
+            b.refrech.isRefreshing = false
+        }
+
+        b.cancelButton.setOnClickListener{
+            finish()
+        }
+
+        b.option.setOnClickListener{
+            val adapter = menu_genre_adapter(b.title.text.toString(),count)
+            adapter.show(this.supportFragmentManager, adapter.tag)
+        }
+
+        b.sort.setOnClickListener{
+            val adapter = menu_sort_genres_adapter()
+            adapter.show(supportFragmentManager, adapter.tag)
+        }
+    }
+
+    private fun loadSongs() {
         if(!name.isNullOrBlank()){
             //set genre name
             b.title.text = name
@@ -70,20 +99,8 @@ class genreContent : AppCompatActivity() {
                     data.playAll(songsList)
                 }
             }
-        }
 
-        b.cancelButton.setOnClickListener{
-            finish()
-        }
 
-        b.option.setOnClickListener{
-            val adapter = menu_genre_adapter(b.title.text.toString(),count)
-            adapter.show(this.supportFragmentManager, adapter.tag)
-        }
-
-        b.sort.setOnClickListener{
-            val adapter = menu_sort_genres_adapter()
-            adapter.show(supportFragmentManager, adapter.tag)
         }
     }
 }

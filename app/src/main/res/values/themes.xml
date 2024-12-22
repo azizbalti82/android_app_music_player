@@ -1,20 +1,38 @@
 <resources>
 
     <style name="mainTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Base colors -->
         <item name="android:windowBackground">@color/background</item>
         <item name="android:statusBarColor">@color/background</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/background</item>
         <item name="android:windowLightNavigationBar">true</item>
+
+        <!-- Primary colors -->
+        <item name="android:colorPrimary">@color/accent</item>
         <item name="android:colorAccent">@color/accent</item>
-        <item name="buttonIconTint">@color/accent</item>
         <item name="android:button">@color/accent</item>
         <item name="android:textColor">@color/text</item>
-        <item name="popupMenuBackground">@color/background</item>
+        <item name="android:colorControlActivated">@color/accent</item> <!-- Used for checkboxes, switches, etc. -->
+
+        <!-- Material Components colors -->
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimaryContainer">@color/accent3</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorTertiary">@color/accent</item>
+        <item name="colorOnPrimary">@color/text</item> <!-- Text/Icon color on primary background -->
+        <item name="colorSurface">@color/background</item>
+        <item name="colorOnSurface">@color/text</item>
+        <item name="colorOutline">@color/text</item>
+        <item name="colorControlNormal">@color/accent</item> <!-- Default state for checkboxes, radio buttons -->
+
+        <!-- Font -->
         <item name="fontFamily">@font</item>
 
-
+        <!-- Popup menus -->
+        <item name="popupMenuBackground">@color/background</item>
     </style>
+
 
     <style name="Theme.MyApplication" parent="mainTheme" />
 

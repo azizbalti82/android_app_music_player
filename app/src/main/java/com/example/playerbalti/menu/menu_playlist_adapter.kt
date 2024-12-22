@@ -16,7 +16,7 @@ import com.example.playerbalti.databinding.MenuPlaylistBinding
 import com.example.playerbalti.storage.db_manager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class menu_playlist_adapter(var name: String,var type:String = "user",var count: Int,var songs: MutableList<Song>) : BottomSheetDialogFragment() {
+class menu_playlist_adapter(var name: String,var type:String = "user",var count: Int,var songs: MutableList<Song>,val launchedByPlaylistContent:Boolean = false) : BottomSheetDialogFragment() {
     lateinit var b:MenuPlaylistBinding
 
     override fun onCreateView(
@@ -71,7 +71,9 @@ class menu_playlist_adapter(var name: String,var type:String = "user",var count:
             }else{
                 val n = db_manager.removePlaylist(requireContext(),name)
                 if(n){
-                    data.playlist_deleted = true
+                    if(launchedByPlaylistContent){
+                        data.playlist_deleted = true
+                    }
                     Toast.makeText(requireContext(), "playlist deleted", Toast.LENGTH_SHORT).show()
                 }
 
@@ -115,6 +117,8 @@ class menu_playlist_adapter(var name: String,var type:String = "user",var count:
                     //update current name
                     val n= db_manager.rename(requireContext(),name,editText.text.toString())
                     if(n){
+                        //save new name in last renamed playlist in data to be used later
+                        data.lastRenamedPlaylist = editText.text.toString()
                         Toast.makeText(this.context?.applicationContext, "playlist renamed", Toast.LENGTH_SHORT).show()
                     }
 

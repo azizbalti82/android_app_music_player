@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/item_selected"
             android:paddingVertical="2dp"
-            android:paddingStart="25dp"
+            android:paddingStart="15dp"
             app:layout_constraintTop_toBottomOf="@+id/taskbar">
 
             <ImageButton
@@ -61,6 +61,7 @@
                 android:layout_height="50dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/outline_settings"
+                android:clickable="false"
                 app:tint="@color/text2" />
 
             <TextView
@@ -79,7 +80,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/item_selected"
             android:paddingVertical="2dp"
-            android:paddingStart="25dp"
+            android:paddingStart="15dp"
             app:layout_constraintTop_toBottomOf="@+id/containerGeneral">
 
             <ImageButton
@@ -87,16 +88,38 @@
                 android:layout_height="50dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/theme"
-                app:tint="@color/text2" />
+                app:tint="@color/text2"
+                android:clickable="false"
+                />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="14dp"
                 android:text="Appearance"
                 android:textColor="@color/text"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_weight="1"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/background_dark">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Available Soon"
+                    android:textSize="11sp"
+                    android:textColor="@color/text"
+                    android:gravity="center" />
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
@@ -105,9 +128,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/item_selected"
             android:paddingVertical="2dp"
-
-
-            android:paddingStart="25dp"
+            android:paddingStart="15dp"
             app:layout_constraintTop_toBottomOf="@+id/containerAppearance">
 
             <ImageButton
@@ -115,16 +136,38 @@
                 android:layout_height="50dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/sound"
-                app:tint="@color/text2" />
+                app:tint="@color/text2"
+                android:clickable="false"
+                />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="14dp"
                 android:text="Audio"
                 android:textColor="@color/text"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_weight="1"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/background_dark">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Available Soon"
+                    android:textSize="11sp"
+                    android:textColor="@color/text"
+                    android:gravity="center" />
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
@@ -133,8 +176,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/item_selected"
             android:paddingVertical="2dp"
-
-            android:paddingStart="25dp"
+            android:paddingStart="15dp"
             app:layout_constraintTop_toBottomOf="@+id/containerAudio">
 
             <ImageButton
@@ -142,16 +184,38 @@
                 android:layout_height="50dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/restore"
-                app:tint="@color/text2" />
+                app:tint="@color/text2"
+                android:clickable="false"
+                />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="14dp"
                 android:text="Backup &amp; Restore"
                 android:textColor="@color/text"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_weight="1"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/background_dark">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Available Soon"
+                    android:textSize="11sp"
+                    android:textColor="@color/text"
+                    android:gravity="center" />
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
         <LinearLayout
@@ -160,8 +224,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/item_selected"
             android:paddingVertical="2dp"
-
-            android:paddingStart="25dp"
+            android:paddingStart="15dp"
             app:layout_constraintTop_toBottomOf="@+id/containerBackup">
 
             <ImageButton
@@ -169,16 +232,38 @@
                 android:layout_height="50dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/playback"
-                app:tint="@color/text2" />
-
+                app:tint="@color/text2"
+                android:clickable="false"
+                />
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingStart="14dp"
                 android:text="Playback"
                 android:textColor="@color/text"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_weight="1"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/background_dark">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Available Soon"
+                    android:textSize="11sp"
+                    android:textColor="@color/text"
+                    android:gravity="center" />
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
 

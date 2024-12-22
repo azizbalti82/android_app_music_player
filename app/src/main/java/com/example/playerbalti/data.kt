@@ -32,6 +32,7 @@ import kotlin.random.Random
 
 class data {
     companion object {
+        var lastRenamedPlaylist: String = ""
         var playlist_deleted = false
         var context: Context? = null
         var main:MainActivity? = null
@@ -131,13 +132,13 @@ class data {
             countdownTimer?.start()
         }
         //------------------------------------------------------------------------------------------------------------
-        fun disableContainer(c: Context,i:View?){
+        fun disableContainer(c: Context,i:View?,customMsg:String="this feature is not ready yet.."){
             i?.setOnClickListener{
-                Toast.makeText(c, "this feature is not ready yet..", Toast.LENGTH_SHORT).show()
+                Toast.makeText(c, customMsg, Toast.LENGTH_SHORT).show()
             }
         }
 
-        fun getAllSongs(context: Context) {
+        fun getAllSongs(context: Context,success_msg:String = "", error_msg:String = "") {
             try {
                 songsCount = 0
                 songsList.clear()
@@ -245,7 +246,13 @@ class data {
                 }
                 songsCount = songsList.count()
                 Log.d("mainActivitymsg", "songs updated")
+                if(success_msg.isNotEmpty()){
+                    Toast.makeText(context, success_msg, Toast.LENGTH_SHORT).show()
+                }
             } catch (e: Exception) {
+                if(error_msg.isNotEmpty()){
+                    Toast.makeText(context, error_msg, Toast.LENGTH_SHORT).show()
+                }
                 Log.d("mainActivitymsg", "error while updating songs")
                 e.printStackTrace()
             }

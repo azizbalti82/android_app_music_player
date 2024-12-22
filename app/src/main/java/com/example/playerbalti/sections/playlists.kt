@@ -87,6 +87,15 @@ class playlists : Fragment() {
             b.refrech.isRefreshing = false
         }
 
+
+
+        //disable the not ready containers:
+        data.disableContainer(requireContext(),b.restore)
+
+
+
+
+
         return b.root
     }
 

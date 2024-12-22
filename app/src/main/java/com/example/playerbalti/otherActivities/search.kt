@@ -1,12 +1,16 @@
 package com.example.playerbalti.otherActivities
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
@@ -37,6 +41,15 @@ class search : AppCompatActivity() {
     private lateinit var viewDir:RecyclerView
     private lateinit var viewPlaylist:RecyclerView
 
+    override fun onResume() {
+        super.onResume()
+        // Set focus and show keyboard with a delay
+        b.input.requestFocus()
+        Handler(Looper.getMainLooper()).postDelayed({
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(b.input, InputMethodManager.SHOW_IMPLICIT)
+        }, 200) // Delay of 200 milliseconds
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = ActivitySearchBinding.inflate(layoutInflater)
