@@ -297,9 +297,13 @@ class playerActivity : AppCompatActivity() {
 
                             snapView?.let {
                                 val position = recyclerView.getChildAdapterPosition(it)
-                                Log.d("music_test", "position:"+position)
-                                data.queueSelectedSong = position
-                                data.miniPlayerStatue("stop_play",false)
+
+                                if(position!= data.queueSelectedSong){
+                                    Log.d("music_test", "position:"+position)
+                                    data.queueSelectedSong = position
+                                    data.miniPlayerStatue("stop_play",false)
+                                }
+
                             }
                         }
                     }

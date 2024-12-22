@@ -8,8 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.playerbalti.R
@@ -30,9 +33,54 @@ class PlayerAdapter(private var queue:MutableList<Song>,private val fragmentMana
         val url = data.extractAlbumArt(song.path)
         data.loadImage(holder.itemView.context, url, holder.art,R.drawable.default_song_image)
 
+        //hide lyrics for every scroll
+        holder.lyrics.visibility = View.INVISIBLE
+        holder.art.visibility = View.VISIBLE
+        if(data.getLyrics(song.path) == ""){
+            holder.lyrics_text.text = "No lyrics found"
+        }else{
+            holder.lyrics_text.text = data.getLyrics(song.path)
+        }
+
+        var lastScrollY = 0
+        holder.lyrics_scroll.setOnScrollChangeListener { _, _, scrollY, _, _ ->
+            if (scrollY > lastScrollY) {
+                // Scrolling down
+                // Scrolling down: hide container
+                holder.lyrics_buttons.animate()
+                    .alpha(0f)
+                    .setDuration(300)
+                    .withEndAction { holder.lyrics_buttons.visibility = View.GONE }
+                    .start()
+            } else if (scrollY < lastScrollY) {
+                // Scrolling up: show container
+                holder.lyrics_buttons.visibility = View.VISIBLE
+                holder.lyrics_buttons.animate()
+                    .alpha(1f)
+                    .setDuration(300)
+                    .start()
+            }
+
+            // Update the last scroll position
+            lastScrollY = scrollY
+        }
+
+
+
+
+
+
         holder.art.setOnClickListener{
+            if(data.getLyrics(song.path) == ""){
+                holder.lyrics_text.text = "No lyrics found"
+            }else{
+                holder.lyrics_text.text = data.getLyrics(song.path)?.trim()
+            }
+
+
             holder.art.visibility = View.INVISIBLE
             holder.lyrics.visibility = View.VISIBLE
+
         }
 
         //add on click listener to the lyrics container & lyrics scrollview to show or hide it
@@ -81,5 +129,9 @@ class PlayerAdapter(private var queue:MutableList<Song>,private val fragmentMana
 
         val search:Button = itemView.findViewById(R.id.search)
         val edit:Button = itemView.findViewById(R.id.edit)
+
+        val lyrics_scroll:ScrollView =  itemView.findViewById(R.id.lyrics_scrollview)
+        val lyrics_buttons:LinearLayout = itemView.findViewById(R.id.lyrics_buttons)
+
     }
 }

@@ -1,13 +1,22 @@
 package com.example.playerbalti.otherActivities
 
+import android.Manifest
+import android.app.Activity
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import com.example.playerbalti.browser.webviewActivity
+import com.example.playerbalti.data
 import com.example.playerbalti.databinding.ActivityEditLyricsBinding
+import java.io.File
 
 class editLyricsActivity : AppCompatActivity() {
     lateinit var b: ActivityEditLyricsBinding
@@ -15,6 +24,14 @@ class editLyricsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         b = ActivityEditLyricsBinding.inflate(layoutInflater)
         setContentView(b.root)
+
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+        }
+
 
         try {
             //get album name
@@ -33,7 +50,6 @@ class editLyricsActivity : AppCompatActivity() {
                     Log.e("mainActivitymsg",e.toString())
                 }
             }
-
             b.past.setOnClickListener{
                 // Get the ClipboardManager
                 val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -48,6 +64,8 @@ class editLyricsActivity : AppCompatActivity() {
                     b.textinput.text?.insert(b.textinput.selectionStart, text)
                 }
             }
+            b.save.setOnClickListener {
+            }
 
         }catch (e:Exception){
             Log.e("mainActivitymsg", "error in onclick edit lyrics: \n$e", )
@@ -56,5 +74,8 @@ class editLyricsActivity : AppCompatActivity() {
         b.cancelButton.setOnClickListener{
             this.finish()
         }
+
+
+        data.disableContainer(this,b.save)
     }
 }

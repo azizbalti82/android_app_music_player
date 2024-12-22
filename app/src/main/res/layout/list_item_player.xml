@@ -16,7 +16,6 @@
         android:id="@+id/lyrics"
         android:layout_width="340dp"
         android:layout_height="340dp"
-        android:layout_marginVertical="30dp"
         android:background="@android:color/transparent"
         android:elevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,13 +24,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <androidx.core.widget.NestedScrollView
+        <ScrollView
             android:id="@+id/lyrics_scrollview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/lyrics_buttons"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -39,14 +37,16 @@
             <TextView
                 android:id="@+id/lyrics_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_height="match_parent"
                 android:textAlignment="center"
                 android:text="No lyrics found"
-                android:textColor="@color/text3"
-                android:textSize="17sp" />
+                android:padding="5dp"
+                android:lineSpacingExtra="12sp"
+                android:textColor="@color/text2"
+                android:textSize="16sp"
+                />
 
-        </androidx.core.widget.NestedScrollView>
+        </ScrollView>
 
         <LinearLayout
             android:id="@+id/lyrics_buttons"

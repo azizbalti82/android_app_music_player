@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.graphics.PorterDuff
 import android.media.MediaMetadataRetriever
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.CountDownTimer
 import android.os.Handler
 import android.provider.MediaStore
@@ -27,7 +28,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.playerbalti.otherActivities.playerActivity
 import com.example.playerbalti.storage.db_manager
 import com.example.playerbalti.storage.shared
+import org.jaudiotagger.audio.AudioFileIO
+import org.jaudiotagger.tag.FieldKey
+import java.io.File
 import kotlin.random.Random
+
 
 
 class data {
@@ -968,23 +973,41 @@ class data {
             DrawableCompat.setTintMode(drawable, PorterDuff.Mode.SRC_IN)
             button.setImageDrawable(drawable)
         }
-    }
-/*
-    fun sort_by_dateAdded(songsList: MutableList<Song> ,direction: String = "up"){
-        var start = if (direction == "up") 0 else songsList.size-1
-        var end = if (direction == "up") songsList.size else 0
 
-        var n = songsList.size
-        for(i in 1..<n){
-            var aux = songsList[i]
-            var j = i
-            while(j>0 && )
+
+        fun getLyrics(filePath: String): String? {
+            return try {
+                val audioFile = AudioFileIO.read(File(filePath))
+                val tag = audioFile.tag
+                tag.getFirst(FieldKey.LYRICS)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                null
+            }
         }
-    }
 
- */
+        fun updateLyrics(context: Context, fileUri: Uri, newLyrics: String) {
+            try {
+                val file = File(getRealPathFromURI(context, fileUri))
+                val audioFile = AudioFileIO.read(file)
+                val tag = audioFile.tagOrCreateDefault
+                tag.setField(FieldKey.LYRICS, newLyrics)
+                audioFile.commit()
+                Log.d("lyrics", "Lyrics updated successfully.")
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Log.d("lyrics", "Failed to update lyrics: ${e.message}")
+            }
+        }
 
-    fun extractDateAdded(){
+        fun getRealPathFromURI(context: Context, contentUri: Uri): String? {
+            var cursor = context.contentResolver.query(contentUri, null, null, null, null)
+            cursor?.moveToFirst()
+            val idx = cursor?.getColumnIndex(android.provider.MediaStore.Images.Media.DATA)
+            val filePath = cursor?.getString(idx ?: -1)
+            cursor?.close()
+            return filePath
+        }
     }
 }
 

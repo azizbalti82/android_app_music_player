@@ -58,4 +58,8 @@ dependencies {
 
     implementation ("androidx.core:core:1.9.0")
     implementation ("androidx.media:media:1.6.0")
+
+    implementation ("com.mpatric:mp3agic:0.9.1")
+
+
 }
