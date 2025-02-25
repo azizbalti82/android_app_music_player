@@ -2,7 +2,7 @@
 
 MusicApp is an Android offline music player that provides a rich set of features to enhance your music listening experience.
 
-![music player](https://github.com/user-attachments/assets/95286b17-b6cd-4622-960a-64fa313caa78)
+![musicplayer](https://github.com/user-attachments/assets/95286b17-b6cd-4622-960a-64fa313caa78)
 
 ## Features
 - **Offline Playback**: Enjoy your music without an internet connection.
