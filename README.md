@@ -40,7 +40,3 @@ Contributions are welcome! Please create a pull request for any improvements or 
 
 ## License
 This project is licensed under the MIT License.
-
----
-
-Feel free to modify it as needed!
