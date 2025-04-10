@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- list_item_song.xml -->
+<LinearLayout
+    android:id="@+id/container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="2dp"
+    android:clickable="true"
+    android:background="@drawable/item_selected"
+    >
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/art"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="17dp"
+        android:background="@drawable/songs_art_background"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/round_corners_art" />
+
+
+
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="10dp"
+        >
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingBottom="2dp"
+            android:text="Song Title"
+            android:textColor="@color/text"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textViewArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:text="Artist"
+            android:textColor="@color/text3"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+
+        android:background="@drawable/buttons_effect"
+        android:src="@drawable/more"
+        app:tint="@color/text3"
+        android:padding="7dp"
+        />
+</LinearLayout>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- i used nested scroll view cause i finded it better and let buggy -->
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/bottomSheetMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bottom_sheet_background"
+        android:orientation="vertical"
+        >
+        <!-- header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10dp"
+            >
+
+            <TextView
+                android:id="@+id/artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sort by"
+                android:textSize="18sp"
+                android:textColor="@color/text"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                />
+
+            <ImageButton
+                android:id="@+id/dir"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/up"
+                android:background="@drawable/buttons_effect"
+                app:tint="@color/text2"
+            />
+        </LinearLayout>
+
+
+        <!-- line -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/selectedButton"/>
+
+
+
+        <LinearLayout
+            android:id="@+id/containerArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_sheet_item_selected"
+            android:paddingVertical="3dp"
+            android:paddingStart="10dp">
+
+            <ImageButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/artist2"
+                app:tint="@color/text3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:paddingStart="5dp"
+                android:text="Artist"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/containerAlbumsCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_sheet_item_selected"
+            android:paddingVertical="3dp"
+            android:paddingStart="10dp">
+
+            <ImageButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/album"
+                app:tint="@color/text3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:paddingStart="5dp"
+                android:text="Albums count"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/containerSongsCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_sheet_item_selected"
+            android:paddingVertical="3dp"
+            android:paddingStart="10dp">
+
+            <ImageButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/audio"
+                app:tint="@color/text3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:paddingStart="5dp"
+                android:text="Songs count"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"/>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
+

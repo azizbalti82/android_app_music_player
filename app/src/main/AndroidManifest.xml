@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/mainTheme"
+        tools:targetApi="tiramisu">
+        <activity
+            android:name=".adapters.selectionMode"
+            android:exported="false" />
+        <activity
+            android:name=".chooseTracks"
+            android:exported="false" />
+
+        <receiver
+            android:name=".widgets.shuffle_widget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/shuffle_widget_info" />
+        </receiver>
+        <receiver
+            android:name=".widgets.player1"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/player1_info" />
+        </receiver>
+
+        <activity
+            android:name=".more.settingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".otherActivities.songDetails"
+            android:exported="false" />
+        <activity
+            android:name=".otherActivities.playerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".browser.webviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".otherActivities.editLyricsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".more.SettingsPlaybackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".more.SettingsBackupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".more.SettingsAudioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".more.SettingsAppearanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".more.SettingsGeneralActivity"
+            android:exported="false" />
+        <activity
+            android:name=".more.equalizerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".more.aboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".content.artistContent"
+            android:exported="false" />
+        <activity
+            android:name=".content.genreContent"
+            android:exported="false" />
+        <activity
+            android:name=".content.albumContent"
+            android:exported="false" />
+        <activity
+            android:name=".content.folderContent"
+            android:exported="false" />
+        <activity
+            android:name=".content.playlistContent"
+            android:exported="false" />
+        <activity
+            android:name=".otherActivities.permissions"
+            android:exported="false" />
+        <activity
+            android:name=".otherActivities.search"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/splash_screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".RunningService" />
+    </application>
+
+</manifest>

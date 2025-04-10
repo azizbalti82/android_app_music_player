@@ -1,0 +1,43 @@
+<!-- res/layout/custom_dialog.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background_dark"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Playlist"
+        android:textSize="17sp"
+        android:paddingStart="10dp"
+        android:textColor="@color/text"
+        android:layout_marginHorizontal="15dp"
+        />
+
+    <EditText
+        android:id="@+id/input"
+        style="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Playlist name"
+        android:layout_marginHorizontal="15dp"
+        android:textSize="16sp"
+        android:maxLines="1"
+        android:inputType="text"
+        />
+
+    <Button
+        android:id="@+id/create"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREATE"
+        android:textColor="@color/accent"
+        android:layout_marginHorizontal="15dp"
+        android:layout_gravity="end"
+
+        />
+</LinearLayout>
